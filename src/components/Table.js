@@ -7,7 +7,6 @@ export const Table = ({ columns, rows }) => {
   const [activePage, setActivePage] = useState(1);
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState({ order: "asc", orderBy: "logId" });
-  const [date, setDate] = useState();
   const rowsPerPage = 10;
   const navigate = useNavigate();
 
@@ -63,7 +62,6 @@ export const Table = ({ columns, rows }) => {
     }));
   };
   const handleDateChange = (e) => {
-    setDate(e.target.value);
     handleSearch(e.target.value, e.target.name);
   };
   return (
