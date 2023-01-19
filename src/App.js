@@ -28,7 +28,7 @@ export default function App() {
           {tableData && (
             <Route
               path="/"
-              element={<Table rows={tableData} columns={columns} />}
+              element={<Table rows={tableData} columns={columns} setTableData={setTableData} />}
             ></Route>
           )}
         </Routes>
