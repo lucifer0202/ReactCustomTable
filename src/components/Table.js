@@ -8,7 +8,7 @@ export const Table = ({ columns, rows, setTableData }) => {
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState({ order: "asc", orderBy: "logId" });
   const [startDate, setStartDate] = useState("")
-  const [endDate, setEndDate] = useState("")
+  const [ setEndDate] = useState("")
   const rowsPerPage = 10;
   const navigate = useNavigate();
 
@@ -66,6 +66,7 @@ export const Table = ({ columns, rows, setTableData }) => {
       if (item.creationTimestamp >= startDate && item.creationTimestamp <= endDate) {
         return item.creationTimestamp
       }
+      return  item.creationTimestamp
     });
 
     let accessor = "creationTimestamp";
@@ -83,29 +84,29 @@ export const Table = ({ columns, rows, setTableData }) => {
     setEndDate(e.target.value);
     // getDatesBetween(startDate, e.target.value)
   };
-  const getDatesBetween = (startDate, endDate) => {
+  // const getDatesBetween = (startDate, endDate) => {
 
-    let startDate1 = new Date(startDate);
-    let endDate1 = new Date(endDate);
-    let dates = [];
-    let tempDate = new Date(startDate1);
-    while (tempDate <= endDate1) {
-      dates.push(new Date(tempDate));
-      tempDate.setDate(tempDate.getDate() + 1);
-    }
-    const dateArr = [];
-    dates.map((date) => {
-      var day = date.getUTCDate();
-      var month = date.getUTCMonth() + 1; //months from 1-12
-      var year = date.getUTCFullYear();
+  //   let startDate1 = new Date(startDate);
+  //   let endDate1 = new Date(endDate);
+  //   let dates = [];
+  //   let tempDate = new Date(startDate1);
+  //   while (tempDate <= endDate1) {
+  //     dates.push(new Date(tempDate));
+  //     tempDate.setDate(tempDate.getDate() + 1);
+  //   }
+  //   const dateArr = [];
+  //   dates.map((date) => {
+  //     var day = date.getUTCDate();
+  //     var month = date.getUTCMonth() + 1; //months from 1-12
+  //     var year = date.getUTCFullYear();
 
-      var newdate = year + "-" + month + "-" + day;
-      dateArr.push(newdate)
-    })
-    let newAcc = "creationTimestamp";
-    handleDateSearch(startDate, endDate, dateArr, newAcc);
+  //     var newdate = year + "-" + month + "-" + day;
+  //     dateArr.push(newdate)
+  //   })
+  //   let newAcc = "creationTimestamp";
+  //   handleDateSearch(startDate, endDate, dateArr, newAcc);
 
-  };
+  // };
 
   return (
     <>
